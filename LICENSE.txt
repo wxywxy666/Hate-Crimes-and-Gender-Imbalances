@@ -1,0 +1,8 @@
+git config --global user.name "wxywxy666"
+git config --global user.email "wxy1700774887@outlook.com"
+git config --global --list
+library(usethis)
+library(gitcreds)
+install.packages("gitcreds")
+usethis()
+create_github_token()
