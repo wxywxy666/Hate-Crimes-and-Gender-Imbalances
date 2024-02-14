@@ -6,8 +6,8 @@ This repo includes a paper which is a reproduction of Dancygier, R., Egami, N., 
 
 This repo is organised as follows:
 
--   replication folder：it includes reproduction package such as data_cleaning.R and the code to replicate the three graphs.
+replication folder：it includes reproduction package such as data_cleaning.R and the code to replicate the three graphs.
 
--   inputs folder：it includes the dataset downloaded from original paper’s data package and the data selected, extracted and cleaned from it.
+inputs folder：it includes the dataset downloaded from original paper’s data package and the data selected, extracted and cleaned from it.
 
--   outputs folder: ir includes Rmd and pdf types of paper, reference.bib file.
+outputs folder: ir includes Rmd and pdf types of paper, reference.bib file.
