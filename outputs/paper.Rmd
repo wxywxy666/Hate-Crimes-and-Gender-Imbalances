@@ -2,9 +2,9 @@
 title: "Explaining Hate Crime and Immigrant Conflict: A New Perspective Study of Mate Competition"
 subtitle: "Reproduction of 'Hate Crimes and Gender Imbalances: Fears over MateCompetition and Violence against Refugees'(Dancygier, Egami, Jamal & Rischke, 2022)"
 author: Guoguo Lv, Xiyou Wang, Yetao Guo
-thanks: "Code and data are available at: https://github.com/wxywxy666/Hate-Crimes-and-Gender-Imbalances. A replication of various aspects in this paper are available at: https://doi.org/10.1111/ajps.1259"
+thanks: "Code and data are available at: https://github.com/wxywxy666/Hate-Crimes-and-Gender-Imbalances. A replication of various aspects in this paper are available at: https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajps.12595"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: ""
+abstract: "The study examines the correlation between gender imbalance, specifically the excess of males in a population, and the consequent competition for mates, as well as the attitudes towards hate crimes against refugees. Utilizing data from various sources, it aims to illuminate the complex interplay between mate competition and the endorsement of hate crimes, addressing gaps in current research. The findings suggest that higher male ratios may contribute to increased mate competition and potentially to greater support for hate-motivated acts against refugees. This research underscores the need for policies that promote gender balance and societal tolerance, contributing to the prevention of hate crimes and enhancing social cohesion."
 output:
   bookdown::pdf_document2
 toc: TRUE
@@ -16,7 +16,7 @@ bibliography: references.bib
 library(ggplot2)
 library(here)
 ```
-
+\newpage
 # Introduction
 
 <!-- Background / Broader Context -->
@@ -206,7 +206,12 @@ The graph is marked with a horizontal dashed line at the zero mark, which is lik
 
 # Discussion
 
-
+The relationship between demographic variables and social attitudes, as depicted in the provided figures, is a complex interplay influenced by many factors. 
+When considering the impact of mate competition on attitudes towards hate crimes (Figure 4), it's crucial to consider the evolutionary psychology perspective, which suggests that competition for mates can increase intergroup hostility and aggression (Buss & Shackelford, 1997). These behaviors may be exacerbated in environments with a skewed sex ratio, as individuals may perceive greater competition for potential partners, heightening in-group biases and out-group derogation (Pedersen, 1991).
+In Figure 3, there are two types of responses depicted for the statement "Only Means (List)"—one from the list experiment and one from direct questioning. The bar representing the list experiment is indeed lower than that for the direct questioning for the statement "Only Means". This could suggest that when individuals are provided with a method that offers anonymity and reduces the pressure to conform to social norms, they might be less likely to agree with statements supporting hate crime, contrary to what might be expected.
+Figure 2 illustrates a positive correlation between the number of excess males in a population and the perception of mate competition, especially among men aged 30-40. This demographic trend could imply that in areas with more males, there is an increased sense of rivalry for potential mates. While the graph does not directly discuss hate crimes, the concept ties into broader social issues where such demographic imbalances may heighten competitive behaviors, potentially influencing social tensions and actions, including hate crimes. 
+To better understand these dynamics, we can look at the intersection of demographic pressures and socio-cultural factors that shape attitudes towards hate crimes. Cultural narratives that equate masculinity with dominance and control may influence these attitudes (Connell, 2005). In societies where masculinity is closely linked with sexual conquest and competition(Baumeister & Vohs, 2004), excess males may experience heightened psychological stress, potentially contributing to aggressive and hostile behaviors towards out-groups.
+Considering the implications of these findings, it is clear that interventions to reduce support for hate crimes must address not only individual attitudes but also the broader demographic and socio-cultural context. This may include public health approaches that focus on changing cultural narratives around masculinity (Courtenay, 2000), as well as social policies aimed at reducing economic and social inequalities that can exacerbate mate competition (Wilkinson & Pickett, 2009).
 
 
 
