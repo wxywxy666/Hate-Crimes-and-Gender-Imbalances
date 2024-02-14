@@ -4,6 +4,8 @@ This repo includes a paper which is a reproduction of Dancygier, R., Egami, N., 
 
 > Here is the link to the original paper: <https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajps.12595>
 
+## overview
+
 This repo is organised as follows:
 
 replication folder：it includes reproduction package such as data_cleaning.R and the code to replicate the three graphs.
@@ -11,5 +13,7 @@ replication folder：it includes reproduction package such as data_cleaning.R an
 inputs folder：it includes the dataset downloaded from original paper’s data package and the data selected, extracted and cleaned from it.
 
 outputs folder: ir includes Rmd and pdf types of paper, reference.bib file.
+
+## LLM statement
 
 In the development of this project, OpenAI's ChatGPT is used to refine the content and aiding in the generation of plots. For a detailed record of my interaction with ChatGPT during this project, please refer to the input/LLM/chat_with_chatGPT.txt file.
