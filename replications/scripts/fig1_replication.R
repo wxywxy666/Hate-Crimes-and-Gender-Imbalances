@@ -9,7 +9,7 @@
 library(ggplot2)
 
 # Load and clean data for wave 4
-d <- readRDS("inputs/data/fig1")
+d <- readRDS("inputs/data/fig1data")
 d <- lapply(d, function(x) round(x, 2))
 
 # Classify all p-value

@@ -71,7 +71,7 @@ fig1 <- list(mean, se, p_value)
 if (file.exists("inputs/data/fig1")) {
   message("File already exists.")
 } else {
-  saveRDS(fig1, file = "inputs/data/fig1")
+  saveRDS(fig1, file = "inputs/data/fig1data")
 }
 
 ## #################
