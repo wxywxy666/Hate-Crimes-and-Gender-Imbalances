@@ -24,7 +24,7 @@ plot(seq(1:5), point, pch = pch_values, col = colors, ylim = c(-0.05, 0.35), xli
 segments(seq(1:5), point - 1.96*se, 
          seq(1:5), point + 1.96*se, col = colors, lwd = 2)
 
-Axis(side = 1, at = seq(1:5), labels = names_point, cex.axis = 1.25)
+Axis(side = 1, at = seq(1:5), labels = names_point, cex.axis = 1)
 
 abline(h = 0, lty = 2)
 
