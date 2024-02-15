@@ -5,11 +5,10 @@
 # Contact: xiyou.wang@mail.utoronto
 # License: MIT
 
-# Load libraries
 library(ggplot2)
 
 # Load and clean data for wave 4
-d <- readRDS("inputs/data/fig1data")
+d <- readRDS(here::here("inputs/data/fig1data"))
 d <- lapply(d, function(x) round(x, 2))
 
 # Classify all p-value
@@ -20,7 +19,7 @@ p_values_total <- d[[3]][c(3, 6, 9)]
 # Summary of basic data information
 summary_data <- data.frame(
   group = rep(c("All", "Male (18-44)", "Male (30-40)"), each = 3),
-  tercile = rep(c("1st tercile", "2nd tercile", "3rd tercile"), 3),
+  tercile = rep(c("1st\ntercile", "2nd\ntercile", "3rd\ntercile"), 3),
   mean = d[[1]],
   se = d[[2]]
 )
@@ -28,12 +27,12 @@ summary_data <- data.frame(
 # Function to add p-value annotations
 add_pvalues <- function(plot, p_values_1st_2nd, p_values_2nd_3rd, p_values_total) {
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[1]), 
-                           aes(label = sprintf("pv = %.2f", p_values_1st_2nd[1]), y = 0.4),
-                           hjust = 1.4, vjust = 30)
+                           aes(label = sprintf("pv = %.2f", p_values_1st_2nd[1]), y = 0.2),
+                           size = 2.7)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd tercile" & group == unique(summary_data$group)[1]), 
                            aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[1]), y = 0.4),
-                           hjust = 1.4, vjust = 30)
+                           hjust = 1.15, vjust = 20, size = 2.7)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[1]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[1]), y = 0.4), 
@@ -41,11 +40,11 @@ add_pvalues <- function(plot, p_values_1st_2nd, p_values_2nd_3rd, p_values_total
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[2]), 
                            aes(label = sprintf("pv = %.2f", p_values_1st_2nd[2]), y = 0.5),
-                           hjust = 1.4, vjust = 30)
+                           hjust = 1.15, vjust = 25, size = 2.7)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd tercile" & group == unique(summary_data$group)[2]), 
                            aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[2]), y = 0.5),
-                           hjust = 1.4, vjust = 30)
+                           hjust = 1.15, vjust = 20, size = 2.7)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[2]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[2]), y = 0.5), 
@@ -53,11 +52,11 @@ add_pvalues <- function(plot, p_values_1st_2nd, p_values_2nd_3rd, p_values_total
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[3]), 
                            aes(label = sprintf("pv = %.2f", p_values_1st_2nd[3]), y = 0.7),
-                           hjust = 1.4, vjust = 30)
+                           hjust = 1.15, vjust = 25, size = 2.7)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd tercile" & group == unique(summary_data$group)[3]), 
                            aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[3]), y = 0.7),
-                           hjust = 1.4, vjust = 30)
+                           hjust = 1.15, vjust = 20, size = 2.7)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[3]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[3]), y = 0.7), 
