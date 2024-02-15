@@ -86,7 +86,7 @@ add_pvalues <- function(plot, p_values_1st_2nd, p_values_2nd_3rd, p_values_total
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[1]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[1]), y = 0.4), 
-                           vjust = 0, fontface = "italic", size = 5)
+                           vjust = 2, fontface = "italic", size = 5)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[2]), 
                            aes(label = sprintf("pv = %.2f", p_values_1st_2nd[2]), y = 0.5),
@@ -98,7 +98,7 @@ add_pvalues <- function(plot, p_values_1st_2nd, p_values_2nd_3rd, p_values_total
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[2]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[2]), y = 0.5), 
-                           vjust = 0, fontface = "italic", size = 5)
+                           vjust = 2, fontface = "italic", size = 5)
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[3]), 
                            aes(label = sprintf("pv = %.2f", p_values_1st_2nd[3]), y = 0.7),
@@ -110,7 +110,7 @@ add_pvalues <- function(plot, p_values_1st_2nd, p_values_2nd_3rd, p_values_total
   
   plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[3]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[3]), y = 0.7), 
-                           vjust = 0, fontface = "italic", size = 5)
+                           vjust = 2, fontface = "italic", size = 5)
   
   return(plot)
 }
@@ -143,10 +143,10 @@ se_p_list <- readRDS(here::here("inputs/data/se"))
 
 # Bar names
 bar_name <- rep("", 5)
-bar_name_u <- c("Only Means\n(List)", "Only Means\n(Direct)", "Justified", "Message", "Condemn")
+bar_name_u <- c("Only Means\n(List)", "Only Means", "Justified", "Message", "Condemn")
 
 # Set plot format
-par(mfrow = c(2, 2), mar = c(5, 5, 4, 2))
+par(mfrow = c(2, 2), mar = c(4, 4, 1, 2))
 
 # Loop to make 4 panels
 for (i in 1:4) {
@@ -235,4 +235,5 @@ On the implication of the findings, it is evident that programs to eliminate sup
 
 Upon reflection, our study into hate crimes and immigrant conflict, aimed at illuminating key issues, inadvertently focused too narrowly, potentially simplifying the complex nuances involved. We endeavored to highlight the pressures immigrants place on local demographics, a topic often neglected in existing literature, in an attempt to fill a significant knowledge gap. However, despite our detailed analysis and empirical data, our exploration may seem superficial upon closer examination. Recognizing this, we see the value in a more thorough examination of demographics likely to engage in mate competition, which does not always lead to hate crimes.Additionally, expanding our dataset to include women's experiences and situations in this context represents a promising direction for future research, suggesting a broader understanding of the underlying social tensions.  This realization highlights the necessity of extending our analytical scope to include a variety of factors and perspectives, aiming for a more detailed understanding of the complex dynamics of migration, social stress, and hate crimes. Considering the limitations of our current study, our future efforts will concentrate on significantly expanding and diversifying our analysis framework. For example, improving gender representation involves incorporating data that reflect women's unique perspectives and experiences, thereby adding depth and breadth to our analyses. Furthermore, the prospect of collaborating with interdisciplinary teams from fields such as psychology and sociology offers the potential to collect a more comprehensive dataset, which is crucial for developing more effective strategies to mitigate hate crimes and immigration conflicts. By integrating insights from various disciplines, we aim to formulate well-informed and inclusive policy proposals that foster social cohesion and address the root causes of intergroup conflicts.
 
+\newpage
 # References
