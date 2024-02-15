@@ -6,8 +6,12 @@ thanks: "Code and data are available at: https://github.com/wxywxy666/Hate-Crime
 date: "`r format(Sys.time(), '%d %B %Y')`"
 abstract: "The study examines the correlation between gender imbalance, specifically the excess of males in a population, and the consequent competition for mates, as well as the attitudes towards hate crimes against refugees. Utilizing data from various sources, it aims to illuminate the complex interplay between mate competition and the endorsement of hate crimes, addressing gaps in current research. The findings suggest that higher male ratios may contribute to increased mate competition and potentially to greater support for hate-motivated acts against refugees. This research underscores the need for policies that promote gender balance and societal tolerance, contributing to the prevention of hate crimes and enhancing social cohesion."
 output:
-  bookdown::pdf_document2
-toc: TRUE
+  bookdown::pdf_document2:
+    toc-title: "Contents"
+toc: true
+toc-title: "Contents"
+number-sections: true
+format: pdf
 bibliography: references.bib
 ---
 
@@ -16,12 +20,10 @@ bibliography: references.bib
 library(ggplot2)
 library(here)
 ```
-
 \newpage
-
 # Introduction
 
-Hate crime and gender imbalance have emerged as a pressing issue in today's society, sparking fears over the disruption of stable relationship formation and social cohesion (FBI 5; Sage books) Explained as the criminal act motivated by bias or prejudice towards particular groups such as race, religion, gender, or identity-based characteristics, hate crimes pose a crucial threat to individuals' and communities' safety. Characterized by disparities in gender imbalance in the portion of men to women within a population has garnered attention for social dynamics and interpersonal relationships due to potential implications [@shang2022tackling].
+Hate crime and gender imbalance have emerged as a pressing issue in today's society, sparking fears over the disruption of stable relationship formation and social cohesion [@chakraborti2015hate] explained as the criminal act motivated by bias or prejudice towards particular groups such as race, religion, gender, or identity-based characteristics, hate crimes pose a crucial threat to individuals' and communities' safety. Characterized by disparities in gender imbalance in the portion of men to women within a population has garnered attention for social dynamics and interpersonal relationships due to potential implications [@shang2022tackling].
 
 The link between hate crime and gender imbalance, with factors interrelated influencing both phenomena, is multifaceted and complex [@chakraborti2015hate]. Certain groups, especially women and members of marginalized communities, often experience gender-based inequalities and are affected disproportionately by discrimination and acts of violence. Further, whether in the form of skewed sex ratios or imbalance in social opportunities and economic gender imbalances, it can lead to frustrations and resentment feelings among individuals, potentially increasing animosity toward specific groups and increasing hate-motivated likelihood [@leote2023female].
 
@@ -29,14 +31,15 @@ Although increased recognition of hate crime and gender imbalance intertwined na
 
 This study aims to cross the gap by investigating and addressing the following questions:
 
--   What is the relationship between the proportion of excess males in a municipality and the perceived competition for mates among the population?
--   What are the attitudes towards hate crimes against refugees?
--   What is the relationship between mate competition and support for hate crimes against refugees?
+- What is the relationship between the proportion of excess males in a municipality and the perceived competition for mates among the population?
+- What are the attitudes towards hate crimes against refugees?
+- What is the relationship between mate competition and support for hate crimes against refugees?
 
-Drawing data from different sources, we seek to elucidate complex phenomena between interconnections and their broader societal implications (FBI 5; Sage books). Through empirical and theoretical analysis rigorously, contribute to a better understanding of these factors during hate-motivated behavior and gender imbalances informing evidence-based intervention and initiatives policies seeking to foster more excellent inclusive gender balance and tolerance in society [@chakraborti2015hate].
+Drawing data from different sources, we seek to elucidate complex phenomena between interconnections and their broader societal implications [@chakraborti2015hate]. Through empirical and theoretical analysis rigorously, contribute to a better understanding of these factors during hate-motivated behavior and gender imbalances informing evidence-based intervention and initiatives policies seeking to foster more excellent inclusive gender balance and tolerance in society [@chakraborti2015hate].
 
 While the original paper used Stata [@Stata] for data processing and analysis in its replication package, we use R [@R] for all data wrangling and analysis and R packages list [@list] to clean the original data, ggplot2 [@ggplot2] to produce the figures and readstata13 [@readstata13] to read the dta files.
 
+\newpage
 # Data
 
 ## Data Source and Methodology
@@ -47,9 +50,10 @@ This original data is collected by Rafaela Dancygier, Naoki Egami, Amaney Jamal,
 
 “survey.dta” is a dataset used to produce survey analyzes in the paper (Figure 2, Figure 3, Figure 4), which contains 53 variables and collects a total of 4 waves of survey data. Most variables are responses to survey questions. For those, we list “Question” and options for “Answer” ranging from Strongly Disagree to Strongly Support, represented by numbers 1-4. We only use data directly related to hate crimes. For example, in Figure 1, we use the MateComp.cont variable to get the mate competition data (numbers 1-4), and then calculate the p-value to get the results.
 
+\newpage
 # Results
 
-```{r fig1, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Excess Males at the Municipality Level and Individuals’ Perceived Mate Competition"}
+```{r fig-1, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Excess Males at the Municipality Level and Individuals’ Perceived Mate Competition"}
 # Load libraries
 library(ggplot2)
 
@@ -65,46 +69,46 @@ p_values_total <- d[[3]][c(3, 6, 9)]
 # Summary of basic data information
 summary_data <- data.frame(
   group = rep(c("All", "Male (18-44)", "Male (30-40)"), each = 3),
-  tercile = rep(c("1st tercile", "2nd tercile", "3rd tercile"), 3),
+  tercile = rep(c("1st\ntercile", "2nd\ntercile", "3rd\ntercile"), 3),
   mean = d[[1]],
   se = d[[2]]
 )
 
 # Function to add p-value annotations
 add_pvalues <- function(plot, p_values_1st_2nd, p_values_2nd_3rd, p_values_total) {
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[1]), 
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[1]), 
                            aes(label = sprintf("pv = %.2f", p_values_1st_2nd[1]), y = 0.4),
-                           hjust = 1.15, vjust = 25, size = 2.7)
-  
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd tercile" & group == unique(summary_data$group)[1]), 
-                           aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[1]), y = 0.4),
                            hjust = 1.15, vjust = 20, size = 2.7)
   
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[1]), 
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd\ntercile" & group == unique(summary_data$group)[1]), 
+                           aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[1]), y = 0.4),
+                           hjust = 1.15, vjust = 15, size = 2.7)
+  
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[1]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[1]), y = 0.4), 
                            vjust = 0, fontface = "italic", size = 5)
   
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[2]), 
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[2]), 
                            aes(label = sprintf("pv = %.2f", p_values_1st_2nd[2]), y = 0.5),
-                           hjust = 1.15, vjust = 25, size = 2.7)
-  
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd tercile" & group == unique(summary_data$group)[2]), 
-                           aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[2]), y = 0.5),
                            hjust = 1.15, vjust = 20, size = 2.7)
   
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[2]), 
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd\ntercile" & group == unique(summary_data$group)[2]), 
+                           aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[2]), y = 0.5),
+                           hjust = 1.15, vjust = 15, size = 2.7)
+  
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[2]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[2]), y = 0.5), 
                            vjust = 0, fontface = "italic", size = 5)
   
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[3]), 
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[3]), 
                            aes(label = sprintf("pv = %.2f", p_values_1st_2nd[3]), y = 0.7),
-                           hjust = 1.15, vjust = 25, size = 2.7)
-  
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd tercile" & group == unique(summary_data$group)[3]), 
-                           aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[3]), y = 0.7),
                            hjust = 1.15, vjust = 20, size = 2.7)
   
-  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd tercile" & group == unique(summary_data$group)[3]), 
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "3rd\ntercile" & group == unique(summary_data$group)[3]), 
+                           aes(label = sprintf("pv = %.2f", p_values_2nd_3rd[3]), y = 0.7),
+                           hjust = 1.15, vjust = 15, size = 2.7)
+  
+  plot <- plot + geom_text(data = subset(summary_data, tercile == "2nd\ntercile" & group == unique(summary_data$group)[3]), 
                            aes(label = sprintf("pv = %.2f", p_values_total[3]), y = 0.7), 
                            vjust = 0, fontface = "italic", size = 5)
   
@@ -123,16 +127,16 @@ p <- ggplot(summary_data, aes(x = tercile, y = mean, group = group)) +
     group = "Group Name"
   ) +
   theme(
-    strip.text = element_text(size = 20)
+    strip.text = element_text(size = 15)
   )
 
 # Use function to add p-value annotation
 add_pvalues(p, p_values_1st_2nd, p_values_2nd_3rd, p_values_total)
 ```
 
-The chart effectively shows the correlation between the surplus of males in a population and the resultant perceptions of mate competition, which has been divided into three separate cohorts. The first cohort comprises the general population, offering a broad perspective on the trend, then more closely in two specific age groups of males: 18-44 and 30-40. The data from the chart is organized into terciles, which echoes the changing male surplus levels. Using this approach facilitates a better analysis, as it portrays a consistent pattern where the idea of mate competition escalates in relation to the increase in male surplus. It is noteworthy to note that this pattern is most marked within the 30-40 age demographic. Interpreting this information shows a raised sensitivity to demographic shifts within this group. The chart utilizes a clear visual methodology to show these insights. The dots represent each perception of the tercile. The dots have also been positioned strategically to convey the central tendency of the data. P-values with meticulous annotation surround these dots, providing a statistical testament to the importance of the observed trends. These p-values serve as a rigorous metric, emphasizing the reliability of the depicted correlations.
+The chart effectively shows the correlation between the surplus of males in a population and the resultant perceptions of mate competition, which has been divided into three separate cohorts. The first cohort comprises the general population, offering a broad perspective on the trend, then more closely in two specific age groups of males: 18-44 and 30-40. The data from the chart is organized into terciles, which echoes the changing male surplus levels. Using this approach facilitates a better analysis, as it portrays a consistent pattern where the idea of mate competition escalates in relation to the increase in male surplus. It is noteworthy to note that this pattern is most marked within the 30-40 age demographic. Interpreting this information shows a raised sensitivity to demographic shifts within this group. The chart utilizes a clear visual methodology to show these insights. The dots represent each perception of the tercile. The dots have also been positioned strategically to convey the central tendency of the data. P-values with meticulous annotation surround these dots, providing a statistical testament to the importance of the observed trends. These p-values serve as a rigorous metric, emphasizing the reliability of the depicted correlations. \newpage
 
-```{r fig2, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Proportion of Respondents Who Agree with\nEach of the Four Hate Crime Statements"}
+```{r fig-2, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Proportion of Respondents Who Agree with\nEach of the Four Hate Crime Statements"}
 # Load data
 points_list <- readRDS(here::here("inputs/data/points"))
 se_p_list <- readRDS(here::here("inputs/data/se"))
@@ -163,9 +167,10 @@ for (i in 1:4) {
 }
 ```
 
-This bar chart contains four panels that present the results of the survey on respondents' level of agreement with four different hate crime statements collected in a total of four waves of the survey study. Under the "Estimate from List Experiment," there is only one category titled "Only Means (List)" with a single dark blue bar. This bar represents the proportion of respondents who agreed with a statement when asked indirectly, as part of a list experiment. The proportion is around 0.15. The "Direct Questions" section includes three light blue bars for the categories. Each category represents a different hate crime statement where respondents were asked directly. "Only Means (Direct)" has a proportion slightly above 0.15, similar to the indirect estimate but with direct questioning. "Justified" shows a slightly lower proportion of agreement, just below the 0.15 mark. "Message" has a proportion just above 0.15, indicating a similar level of agreement to the "Only Means (Direct)" statement. "Condemn" displays the highest agreement, with a proportion close to 0.25, suggesting that more respondents agree with a statement that presumably condemns hate crimes. This visual comparison shows differences in respondent agreement levels based on how the questions were asked, with direct questioning generally eliciting higher agreement levels.
+This bar chart contains four panels that present the results of the survey on respondents' level of agreement with four different hate crime statements collected in a total of four waves of the survey study. Under the "Estimate from List Experiment," there is only one category titled "Only Means (List)" with a single dark blue bar. This bar represents the proportion of respondents who agreed with a statement when asked indirectly, as part of a list experiment. The proportion is around 0.15. The "Direct Questions" section includes three light blue bars for the categories. Each category represents a different hate crime statement where respondents were asked directly. "Only Means (Direct)" has a proportion slightly above 0.15, similar to the indirect estimate but with direct questioning. "Justified" shows a slightly lower proportion of agreement, just below the 0.15 mark. "Message" has a proportion just above 0.15, indicating a similar level of agreement to the "Only Means (Direct)" statement. "Condemn" displays the highest agreement, with a proportion close to 0.25, suggesting that more respondents agree with a statement that presumably condemns hate crimes. This visual comparison shows differences in respondent agreement levels based on how the questions were asked, with direct questioning generally eliciting higher agreement levels. \newpage
 
-```{r fig3, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Estimated Effects of MateCompetition on Support for HateCrime"}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Estimated Effects of MateCompetition on Support for HateCrime"}
+#| label: fig-3
 # Calculate points and standard errors again for clarity
 point <- readRDS(here::here("inputs/data/points"))[[5]]
 se <- readRDS(here::here("inputs/data/se"))[[5]]
@@ -199,11 +204,12 @@ for (i in 1:4) {
 
 This graph depicts the relationship between mate competition and the level of support for hate crime through five distinct categories. Each category is represented by a point on the graph, with a vertical line that indicates the confidence interval or error range around the estimate. The "Only Means" category has a low estimated effect size around 0.15 with a relatively small confidence interval. The "Justified" category shows a slightly higher effect size than "Only Means", also with a small confidence interval. The "Message" category has an estimated effect similar to "Justified". The "Prevent" category shows the highest estimated effect size than the previous ones, around 0.2. Finally, the "Condemn" category has an effect size close to zero, with a confidence interval that crosses the zero line. The graph is marked with a horizontal dashed line at the zero mark, which is likely indicating the point of no effect. The Significant Effects are marked on the graph above the first four categories, suggesting that these categories' effect size is statistically significant, whereas the remaining category is not explicitly marked as significant.
 
+\newpage
 # Discussion
 
 ## Finding
 
-Figure \@ref(fig:fig1) illustrates a positive correlation between the number of excess males in a population and the perception of mate competition, especially among men aged 30-40. This demographic trend imply that there is an increased sense of rivalry for potential mates in areas with more males. While the graph does not directly discuss hate crimes, the concept ties into broader social issues where such demographic imbalances may heighten competitive behaviors, potentially influencing social tensions and actions, including hate crimes. In Figure \@ref(fig:fig2), two types of responses are depicted for the statement "Only Means (List)", one from the list experiment and one from direct questioning. The bar representing the list experiment is indeed lower than that for the direct questioning for the statement "Only Means". This suggest that when individuals are provided with a method that offers anonymity and reduces the pressure to conform to social norms, they might be less likely to agree with statements supporting hate crime, contrary to what might be expected. When considering the impact of mate competition on attitudes towards hate crimes Figure \@ref(fig:fig3), it's crucial to consider the evolutionary psychology perspective, which suggests that competition for mates can increase intergroup hostility and aggression [@Buss1997]. These behaviors may be exacerbated in environments with a skewed sex ratio, as individuals may perceive greater competition for potential partners, heightening in-group biases and out-group derogation [@Pedersen1991].
+@fig-1 illustrates a positive correlation between the number of excess males in a population and the perception of mate competition, especially among men aged 30-40. This demographic trend imply that there is an increased sense of rivalry for potential mates in areas with more males. While the graph does not directly discuss hate crimes, the concept ties into broader social issues where such demographic imbalances may heighten competitive behaviors, potentially influencing social tensions and actions, including hate crimes. In @fig-2, two types of responses are depicted for the statement "Only Means (List)", one from the list experiment and one from direct questioning. The bar representing the list experiment is indeed lower than that for the direct questioning for the statement "Only Means". This suggest that when individuals are provided with a method that offers anonymity and reduces the pressure to conform to social norms, they might be less likely to agree with statements supporting hate crime, contrary to what might be expected. When considering the impact of mate competition on attitudes towards hate crimes @fig-3, it's crucial to consider the evolutionary psychology perspective, which suggests that competition for mates can increase intergroup hostility and aggression [@Buss1997]. These behaviors may be exacerbated in environments with a skewed sex ratio, as individuals may perceive greater competition for potential partners, heightening in-group biases and out-group derogation [@Pedersen1991].
 
 ## The Interplay of Demographics and Sociocultural Factors
 
@@ -224,5 +230,9 @@ Educational inequalities, as well, are of great importance when it comes to the 
 ## Implications
 
 On the implication of the findings, it is evident that programs to eliminate support for hate crimes should include both individual attitude change and the broader context, given that the focus is on demographics and society. This covers those promotion of public health that is gender-based and specializes in changing the cultural modeling around masculinity [@Courtenay2000], as well as those reconstructors of social policies envisaging the reduction of economic and social inequalities that can amplify the competition of mates [@Wilkinson2009].
+
+## Weakness and future direction
+
+Upon reflection, our study into hate crimes and immigrant conflict, aimed at illuminating key issues, inadvertently focused too narrowly, potentially simplifying the complex nuances involved. We endeavored to highlight the pressures immigrants place on local demographics, a topic often neglected in existing literature, in an attempt to fill a significant knowledge gap. However, despite our detailed analysis and empirical data, our exploration may seem superficial upon closer examination. Recognizing this, we see the value in a more thorough examination of demographics likely to engage in mate competition, which does not always lead to hate crimes.Additionally, expanding our dataset to include women's experiences and situations in this context represents a promising direction for future research, suggesting a broader understanding of the underlying social tensions.  This realization highlights the necessity of extending our analytical scope to include a variety of factors and perspectives, aiming for a more detailed understanding of the complex dynamics of migration, social stress, and hate crimes. Considering the limitations of our current study, our future efforts will concentrate on significantly expanding and diversifying our analysis framework. For example, improving gender representation involves incorporating data that reflect women's unique perspectives and experiences, thereby adding depth and breadth to our analyses. Furthermore, the prospect of collaborating with interdisciplinary teams from fields such as psychology and sociology offers the potential to collect a more comprehensive dataset, which is crucial for developing more effective strategies to mitigate hate crimes and immigration conflicts. By integrating insights from various disciplines, we aim to formulate well-informed and inclusive policy proposals that foster social cohesion and address the root causes of intergroup conflicts.
 
 # References
