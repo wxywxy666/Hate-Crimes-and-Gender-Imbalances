@@ -1,7 +1,7 @@
 ---
 title: "Explaining Hate Crime and Immigrant Conflict: A New Perspective Study of Mate Competition"
 subtitle: "Reproduction of 'Hate Crimes and Gender Imbalances: Fears over MateCompetition and Violence against Refugees'(Dancygier, Egami, Jamal & Rischke, 2022)"
-author: Guoguo Lv, Xiyou Wang, Yetao Guo
+author: Guoguo Lyu, Xiyou Wang, Yetao Guo
 thanks: "Code and data are available at: https://github.com/wxywxy666/Hate-Crimes-and-Gender-Imbalances. A replication of various aspects in this paper are available at: https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajps.12595"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 abstract: "The study examines the correlation between gender imbalance, specifically the excess of males in a population, and the consequent competition for mates, as well as the attitudes towards hate crimes against refugees. Utilizing data from various sources, it aims to illuminate the complex interplay between mate competition and the endorsement of hate crimes, addressing gaps in current research. The findings suggest that higher male ratios may contribute to increased mate competition and potentially to greater support for hate-motivated acts against refugees. This research underscores the need for policies that promote gender balance and societal tolerance, contributing to the prevention of hate crimes and enhancing social cohesion."
@@ -37,7 +37,7 @@ This study aims to cross the gap by investigating and addressing the following q
 
 Drawing data from different sources, we seek to elucidate complex phenomena between interconnections and their broader societal implications [@chakraborti2015hate]. Through empirical and theoretical analysis rigorously, contribute to a better understanding of these factors during hate-motivated behavior and gender imbalances informing evidence-based intervention and initiatives policies seeking to foster more excellent inclusive gender balance and tolerance in society [@chakraborti2015hate].
 
-While the original paper used Stata [@Stata] for data processing and analysis in its replication package, we use R [@R] for all data wrangling and analysis and R packages list [@list] to clean the original data, ggplot2 [@ggplot2] to produce the figures and readstata13 [@readstata13] to read the dta files.
+While the original paper used Stata [@Stata] for data processing and analysis in its replication package, we use R [@R] for all data wrangling and analysis and R packages list [@list] to clean the original data, ggplot2 [@ggplot2] to produce the figures and readstata13 [@readstata13] to read the .dta files.
 
 \newpage
 # Data
@@ -211,13 +211,14 @@ This graph depicts the relationship between mate competition and the level of su
 
 @fig-1 illustrates a positive correlation between the number of excess males in a population and the perception of mate competition, especially among men aged 30-40. This demographic trend imply that there is an increased sense of rivalry for potential mates in areas with more males. While the graph does not directly discuss hate crimes, the concept ties into broader social issues where such demographic imbalances may heighten competitive behaviors, potentially influencing social tensions and actions, including hate crimes. In @fig-2, two types of responses are depicted for the statement "Only Means (List)", one from the list experiment and one from direct questioning. The bar representing the list experiment is indeed lower than that for the direct questioning for the statement "Only Means". This suggest that when individuals are provided with a method that offers anonymity and reduces the pressure to conform to social norms, they might be less likely to agree with statements supporting hate crime, contrary to what might be expected. When considering the impact of mate competition on attitudes towards hate crimes @fig-3, it's crucial to consider the evolutionary psychology perspective, which suggests that competition for mates can increase intergroup hostility and aggression [@Buss1997]. These behaviors may be exacerbated in environments with a skewed sex ratio, as individuals may perceive greater competition for potential partners, heightening in-group biases and out-group derogation [@Pedersen1991].
 
-## The Interplay of Demographics and Sociocultural Factors
 
-In order to get a better idea of these relationships, what can be examined is the influences of demographic factors and social-cultural attitudes which trigger hate crimes.
+
 
 ## Masculinity
 
 Masculinity, a cultural story where the dominant and controlling is the man, can be the reason for such attitudes [@Connell2005]. Men are featured in traditional masculinity stories as defenders who are also providers, who are strong physically, violent and who also dominate sexually. These cultural stories greatly influence men's perception of their social status and how they perceive that status in their behaviors and actions towards other people. Often, in communities where masculinity is equated with sexual conquest and access to women [@Baumeister2004], the superfluous males suffer from psychological stress and anxiety, which might be the cause of aggression and hostility towards other groups. This hostility serves as a signal of intergroup conflict, and can be directed at both out-group and in-group members, as part of the competition. Similarly, the societal norms of conforming to these masculine ideals can cause greater anxiety and stress among men who feel they do not meet these standards. In communities where masculinity is strongly tied to the number of women they are able to conquer, men who are short of potential partners may experience increased psychological stress. This stress can be expressed in the form of violence and hostility towards other people. Therefore, an increase in the number of hate crimes is a possible outcome.
+
+In order to get a better idea of these relationships, what can be examined is the influences of demographic factors and social-cultural attitudes which trigger hate crimes.
 
 ## Digital media and educational inequality
 
