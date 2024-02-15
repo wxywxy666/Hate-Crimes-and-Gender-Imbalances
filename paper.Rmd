@@ -5,9 +5,9 @@ author: Guoguo Lv, Xiyou Wang, Yetao Guo
 thanks: "Code and data are available at: https://github.com/wxywxy666/Hate-Crimes-and-Gender-Imbalances. A replication of various aspects in this paper are available at: https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajps.12595"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 abstract: "The study examines the correlation between gender imbalance, specifically the excess of males in a population, and the consequent competition for mates, as well as the attitudes towards hate crimes against refugees. Utilizing data from various sources, it aims to illuminate the complex interplay between mate competition and the endorsement of hate crimes, addressing gaps in current research. The findings suggest that higher male ratios may contribute to increased mate competition and potentially to greater support for hate-motivated acts against refugees. This research underscores the need for policies that promote gender balance and societal tolerance, contributing to the prevention of hate crimes and enhancing social cohesion."
-format: pdf
 output:
   bookdown::pdf_document2
+format: pdf
 toc: TRUE
 bibliography: references.bib
 ---
@@ -200,30 +200,5 @@ for (i in 1:4) {
 
 This graph depicts the relationship between mate competition and the level of support for hate crime through five distinct categories. Each category is represented by a point on the graph, with a vertical line that indicates the confidence interval or error range around the estimate. The "Only Means" category has a low estimated effect size around 0.15 with a relatively small confidence interval. The "Justified" category shows a slightly higher effect size than "Only Means", also with a small confidence interval. The "Message" category has an estimated effect similar to "Justified". The "Prevent" category shows the highest estimated effect size than the previous ones, around 0.2. Finally, the "Condemn" category has an effect size close to zero, with a confidence interval that crosses the zero line. The graph is marked with a horizontal dashed line at the zero mark, which is likely indicating the point of no effect. The Significant Effects are marked on the graph above the first four categories, suggesting that these categories' effect size is statistically significant, whereas the remaining category is not explicitly marked as significant.
 
-# Discussion
-
-## Finding
-
-Figure \@ref(fig:fig1) illustrates a positive correlation between the number of excess males in a population and the perception of mate competition, especially among men aged 30-40. This demographic trend imply that there is an increased sense of rivalry for potential mates in areas with more males. While the graph does not directly discuss hate crimes, the concept ties into broader social issues where such demographic imbalances may heighten competitive behaviors, potentially influencing social tensions and actions, including hate crimes. In Figure \@ref(fig:fig2), two types of responses are depicted for the statement "Only Means (List)", one from the list experiment and one from direct questioning. The bar representing the list experiment is indeed lower than that for the direct questioning for the statement "Only Means". This suggest that when individuals are provided with a method that offers anonymity and reduces the pressure to conform to social norms, they might be less likely to agree with statements supporting hate crime, contrary to what might be expected. When considering the impact of mate competition on attitudes towards hate crimes Figure \@ref(fig:fig3), it's crucial to consider the evolutionary psychology perspective, which suggests that competition for mates can increase intergroup hostility and aggression [@Buss1997]. These behaviors may be exacerbated in environments with a skewed sex ratio, as individuals may perceive greater competition for potential partners, heightening in-group biases and out-group derogation [@Pedersen1991].
-
-## The Interplay of Demographics and Sociocultural Factors
-
-In order to get a better idea of these relationships, what can be examined is the influences of demographic factors and social-cultural attitudes which trigger hate crimes.
-
-## Masculinity
-
-Masculinity, a cultural story where the dominant and controlling is the man, can be the reason for such attitudes [@Connell2005]. Men are featured in traditional masculinity stories as defenders who are also providers, who are strong physically, violent and who also dominate sexually. These cultural stories greatly influence men's perception of their social status and how they perceive that status in their behaviors and actions towards other people. Often, in communities where masculinity is equated with sexual conquest and access to women [@Baumeister2004], the superfluous males suffer from psychological stress and anxiety, which might be the cause of aggression and hostility towards other groups. This hostility serves as a signal of intergroup conflict, and can be directed at both out-group and in-group members, as part of the competition. Similarly, the societal norms of conforming to these masculine ideals can cause greater anxiety and stress among men who feel they do not meet these standards. In communities where masculinity is strongly tied to the number of women they are able to conquer, men who are short of potential partners may experience increased psychological stress. This stress can be expressed in the form of violence and hostility towards other people. Therefore, an increase in the number of hate crimes is a possible outcome.
-
-## Digital media and educational inequality
-
-Furthermore, it is crucial to consider the following elements: digital media, educational inequality, and masculinity among all ages and social classes. In the age of digital media, people have their minds conformed to behave in unique ways as no other time has witnessed. This is all the more so in the case of social media where assortment of ideas about masculinity and cultural attitudes grows stronger and gets challenged or reinforced there. While ruling on one side, the digital trend can give birth to discussions that are more diversified and add new elements to the already established notions. They will also be recruitment grounds for crowd them to access and spread extreme ideas as well as hate speech, which in return will just speed up the polarization of public opinion and the violence will come to be the niche of the manhood. The digital realm has two different effects on social viewpoints, which could intensify the negative effect of demographic imbalances on the decision-making process of choosing a partner and the subsequent social conflicts.
-
-## Educational inequalities
-
-Educational inequalities, as well, are of great importance when it comes to the development of the public opinion concerning hate crimes. In several societies, the socioeconomic status, race, and place of a person are important factors that decide how much education they get that is of high quality. However, these differences are the factors that make people perceive the world in different ways and the extent to which they can stand up to the negative stereotypes and prejudices. The people who lack a complete education that provides equal opportunities for girls and boys, teach about social justice and the importance of diversity, are more likely to have biased and discriminating views. Additionally, it is possible that violent displays of masculinity and intolerance will continue to exist as a consequence of education that either promotes traditional gender standards or minimizes the relevance of critical media literacy.
-
-## Implications
-
-On the implication of the findings, it is evident that programs to eliminate support for hate crimes should include both individual attitude change and the broader context, given that the focus is on demographics and society. This covers those promotion of public health that is gender-based and specializes in changing the cultural modeling around masculinity [@Courtenay2000, as well as those reconstructors of social policies envisaging the reduction of economic and social inequalities that can amplify the competition of mates [@Wilkinson2009].
 
 # References
